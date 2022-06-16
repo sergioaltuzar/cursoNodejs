@@ -1,7 +1,18 @@
 const {crearArchivo} = require('./helpers/multiplicar');
-const argv = require('yargs').argv;
+const argv = require('yargs')
+    .option('b',{
+        alias: 'base',
+        type: 'number',
+        demandOption: true
+    })
+    .check((argv, options) => {
+        if ( isNaN (argv.b) ) {
+            throw new Error('La base debe ser un numero');
+        }
+    })
+.argv;
 console.clear();
-console.log(process.argv);
+
 console.log(argv);
 console.log('base: yarg', argv.base);
 
