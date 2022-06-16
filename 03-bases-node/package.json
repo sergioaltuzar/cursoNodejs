@@ -9,6 +9,7 @@
   "author": "Sergio Altuzar",
   "license": "ISC",
   "dependencies": {
-    "colors": "^1.4.0"
+    "colors": "^1.4.0",
+    "yargs": "^17.5.1"
   }
 }
