@@ -9,16 +9,17 @@ const argv = require('yargs')
         if ( isNaN (argv.b) ) {
             throw new Error('La base debe ser un numero');
         }
+        return true;
     })
 .argv;
 console.clear();
 
 console.log(argv);
-console.log('base: yarg', argv.base);
+
 
 // const [ , , arg3 = 'base=5'] = process.argv;
 // const [ , base = 5] = arg3.split('=');
 // const base =5;
-// crearArchivo(base)
-//     .then(nombreArchivo => console.log(`Archivo creado: ${nombreArchivo}`))
-//     .catch(err => console.log(err));
+crearArchivo(argv.b)
+    .then(nombreArchivo => console.log(`Archivo creado: ${nombreArchivo}`))
+    .catch(err => console.log(err));
