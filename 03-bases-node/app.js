@@ -5,6 +5,12 @@ const argv = require('yargs')
         type: 'number',
         demandOption: true
     })
+    .option('l',{
+        alias: 'listar',
+        type: 'boolean',
+        demandOption: true,
+        default: false
+    })
     .check((argv, options) => {
         if ( isNaN (argv.b) ) {
             throw new Error('La base debe ser un numero');
@@ -16,10 +22,6 @@ console.clear();
 
 console.log(argv);
 
-
-// const [ , , arg3 = 'base=5'] = process.argv;
-// const [ , base = 5] = arg3.split('=');
-// const base =5;
-crearArchivo(argv.b)
+crearArchivo(argv.b, argv.l)
     .then(nombreArchivo => console.log(`Archivo creado: ${nombreArchivo}`))
     .catch(err => console.log(err));
